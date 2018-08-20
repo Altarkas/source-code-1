@@ -1,0 +1,56 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Godlike Electronics</a>
+        <a class="navbar-brand"(click)="selectedCategory('TV')" href="#">TV</a>
+        <a class="navbar-brand"(click)="selectedCategory('Computer')" href="#">Computer</a>
+        <a class="navbar-brand"(click)="selectedCategory('Phone')" href="#">Phone</a>
+<ul class="nav navbar-nav navbar-right ">
+
+     <li>My Items</li>
+      <ul class="nav navbar-nav">
+        <li *ngFor="let category of CategoryList  ">
+        <li class="active"><a href="#">Home</a></li>
+
+
+        <li><a href="#">Category</a></li>
+
+
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Information</a></li>
+      </ul>
+
+
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Jumbotron Header -->
+      <header class="jumbotron my-4">
+        <h1 class="display-3">Welcome To Our Electronic Market</h1>
+        <p class="lead">We try our very best to provide best customer experiences!</p>
+        <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
+      </header>
+
+      <!-- Page Features -->
+      <div class="row text-center">
+
+        <div class="col-lg-3 col-md-6 mb-4" *ngFor="let product of ProductList | searchfilter:'category' :'' "     >
+          <div class="card">
+            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+            <div class="card-body">
+              <h4 class="card-title">{{product.name}}</h4>
+              <p class="card-text">{{product.category}} | {{product.price}}$</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-success"(click)="addCart(product)">Add Cart</a> <a href="#" class="btn btn-default">More Info</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <!-- /.row -->
+
+    </div>
